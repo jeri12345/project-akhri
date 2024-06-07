@@ -95,8 +95,6 @@ class Peminjamancontroller extends Controller
     {
         peminjamanModel::where('id',$id)->delete();
 
-        return redirect('/peminjaman');
+        return redirect('/datapeminjaman');
     }
 }
-
-

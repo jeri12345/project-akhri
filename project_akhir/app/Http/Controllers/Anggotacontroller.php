@@ -94,7 +94,6 @@ class Anggotacontroller extends Controller
     {
         anggotaModel::where('id',$id)->delete();
 
-        return redirect('/halaman.databuku.index');
+        return redirect('/halaman.databuku');
     }
 }
-

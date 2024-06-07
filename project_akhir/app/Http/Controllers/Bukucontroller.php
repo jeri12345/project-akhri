@@ -58,12 +58,11 @@ public function edit($id)
     return view('halaman.edit', ['buku' => $buku]);
 }
 
-
 public function destroy($id)
 {
     // code to delete the book
     $buku = Bukumodel::find($id);
     $buku->delete();
-    return redirect()->route('halamanbuku.index'); // redirect to the book index page
+    return redirect()->route('buku.index'); // redirect to the book index page
 }
 }
