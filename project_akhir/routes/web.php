@@ -21,3 +21,7 @@ Route::resource('anggota', AnggotaController::class);
 
 Route::resource('peminjaman', PeminjamanController::class);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
