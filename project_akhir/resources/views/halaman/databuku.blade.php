@@ -22,7 +22,7 @@
                   
                       @csrf
                       <div class="form-group">
-                        <label>namabuku</label>
+                        <label>nama buku</label>
                         <input type="text" class="form-control" name="namabuku">
                       </div>
                       <div class="form-group">

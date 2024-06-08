@@ -22,7 +22,7 @@
                   
                       @csrf
                       <div class="form-group">
-                        <label>namaanggota</label>
+                        <label>nama anggota</label>
                         <input type="text" class="form-control" name="namaanggota">
                       </div>
                       <div class="form-group">
@@ -39,7 +39,7 @@
                         <table class="table table-striped mb-0">
                             <thead>
                                 <tr>
-                                    <th>Nama anggpta</th>
+                                    <th>Nama anggota</th>
                                     <th>alamat</th>
                                   
                                     <th>Menu</th>
