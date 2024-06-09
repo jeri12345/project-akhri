@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class BukuController extends Controller
 {
+    public function __construct()
+    {
+        if($this->middleware('auth')){
+            return redirect('home');
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */

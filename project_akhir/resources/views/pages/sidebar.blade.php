@@ -51,22 +51,22 @@
         </a>
         
         <ul class="submenu ">
-            
+            @guest
+                
             <li class="submenu-item  ">
-                <a href="auth-login.html" class="submenu-link">Login</a>
+                <a href="/login" class="submenu-link">Login</a>
                 
             </li>
             
             <li class="submenu-item  ">
-                <a href="auth-register.html" class="submenu-link">Register</a>
+                <a href="/register" class="submenu-link">Register</a>
                 
             </li>
-            
-            <li class="submenu-item  ">
-                <a href="auth-forgot-password.html" class="submenu-link">Forgot Password</a>
-                
-            </li>
+            @endguest
 
+            @auth
+                
+            
             <li class="submenu-item  ">
                 <a href="{{ route('logout') }}" 
                 onclick="event.preventDefault();
@@ -78,7 +78,7 @@
                     @csrf
                 </form>
             </li>
-            
+            @endauth
         </ul>
         
 
