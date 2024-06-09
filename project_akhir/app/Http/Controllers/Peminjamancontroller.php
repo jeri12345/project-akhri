@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\peminjamanModel;
+use App\Models\anggotaModel;
+use App\Models\bukuModel;
 use Illuminate\Http\Request;
 
 class Peminjamancontroller extends Controller
@@ -17,7 +19,9 @@ class Peminjamancontroller extends Controller
     public function index()
     {
         $peminjaman = PeminjamanModel::with('anggota', 'buku')->get();
-        return view('halaman.datapeminjaman', compact('peminjaman'));
+        $dataAnggota = anggotaModel::all();
+        $dataBuku = bukuModel::all();
+        return view('halaman.datapeminjaman', compact('peminjaman', 'dataAnggota', 'dataBuku'));
     }
     
 
@@ -26,7 +30,10 @@ class Peminjamancontroller extends Controller
      */
     public function create()
     {
-        return view("halaman.create");
+        $peminjaman = peminjamanmodel::find($id);
+        $dataAnggota = anggotaModel::all();
+        $dataBuku = bukuModel::all();
+        return view('halaman.editpeminjaman', ['peminjaman' => $peminjaman, 'dataAnggota' => $dataAnggota, 'dataBuku' => $dataBuku]);
     }
 
     /**
@@ -35,8 +42,8 @@ class Peminjamancontroller extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'namaanggota' => 'required',
-            'namabuku' => 'required',
+            'anggota_id' => 'required',
+            'buku_id' => 'required',
             
         ]);
 
@@ -52,8 +59,9 @@ class Peminjamancontroller extends Controller
     public function show(string $id)
     {
         $peminjaman = peminjamanmodel::find($id);
-
-        return view('halaman.detail', ['peminjaman' => $peminjaman]);
+        $dataAnggota = anggotaModel::all();
+        $dataBuku = bukuModel::all();
+        return view('halaman.detailpeminjaman', compact('peminjaman', 'dataAnggota', 'dataBuku'));
     }
 
     /**
@@ -62,8 +70,9 @@ class Peminjamancontroller extends Controller
     public function edit(string $id)
     {
         $peminjaman = peminjamanmodel::find($id);
-
-        return view('halaman.edit', ['peminjaman' => $peminjaman]);
+        $dataAnggota = anggotaModel::all();
+        $dataBuku = bukuModel::all();
+        return view('halaman.editpeminjaman', ['peminjaman' => $peminjaman, 'dataAnggota' => $dataAnggota, 'dataBuku' => $dataBuku]);
     }
 
     /**
@@ -72,21 +81,15 @@ class Peminjamancontroller extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'namaanggota' => 'required|min:3',
-            'namabuku' => 'required|numeric',
+            'anggota_id' => 'required',
+            'buku_id' => 'required',
           
-        ],
-       [
-                'namaanggota.required' => 'Nama Harus di Isi',
-                'namabuku.required' => 'Umur Harus di Isi',
-                
-
         ]);
         peminjamanModel::where('id',$id)
         ->update(
             [
-                'namaanggota' => $request->input('namaanggota'),
-                'namabuku' => $request->input('namabuku'),
+                'anggota_id' => $request->input('anggota_id'),
+                'buku_id' => $request->input('buku_id'),
                 
             ]
             );

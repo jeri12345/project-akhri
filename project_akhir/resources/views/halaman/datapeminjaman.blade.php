@@ -22,14 +22,22 @@
                   
                       @csrf
                       <div class="form-group">
-                        <label>nama anggota</label>
-                        <input type="text" class="form-control" name="namaanggota">
-                      </div>
-                      @csrf
-                      <div class="form-group">
-                        <label>nama buku</label>
-                        <input type="text" class="form-control" name="namabuku">
-                      </div>
+                            <label for="anggota_id">Nama Anggota</label>
+                            <select class="form-control" id="anggota_id" name="anggota_id">
+                                @foreach ($dataAnggota as $anggota)
+                                    <option value="{{ $anggota->id }}">{{ $anggota->namaanggota }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="buku_id">Judul Buku</label>
+                            <select class="form-control" id="buku_id" name="buku_id">
+                                @foreach ($dataBuku as $buku)
+                                    <option value="{{ $buku->id }}">{{ $buku->judul }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 <div class="card-content">

@@ -52,7 +52,7 @@ class Anggotacontroller extends Controller
     {
         $anggota = anggotamodel::find($id);
 
-        return view('halaman.dataanggota.detail', ['anggota' => $anggota]);
+        return view('halaman.detailanggota', ['anggota' => $anggota]);
     }
 
     /**
@@ -62,7 +62,7 @@ class Anggotacontroller extends Controller
     {
         $anggota = anggotamodel::find($id);
 
-        return view('halaman.dataanggota.edit', ['anggota' => $anggota]);
+        return view('halaman.editanggota', ['anggota' => $anggota]);
     }
 
     /**
@@ -72,14 +72,8 @@ class Anggotacontroller extends Controller
     {
         $request->validate([
             'namaanggota' => 'required|min:3',
-            'alamat' => 'required|numeric',
+            'alamat' => 'required',
             
-        ],
-       [
-                'namabuku.required' => 'Nama Harus di Isi',
-                'judul.required' => 'Umur Harus di Isi',
-                
-
         ]);
         anggotaModel::where('id',$id)
         ->update(
@@ -89,7 +83,7 @@ class Anggotacontroller extends Controller
                 
             ]
             );
-        return redirect('/halaman.dataanggota');
+        return redirect('/anggota');
     }
 
     /**
@@ -99,6 +93,6 @@ class Anggotacontroller extends Controller
     {
         anggotaModel::where('id',$id)->delete();
 
-        return redirect('/halaman.databuku');
+        return redirect('/anggota');
     }
 }

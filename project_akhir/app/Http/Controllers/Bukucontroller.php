@@ -53,18 +53,35 @@ class BukuController extends Controller
      */
     public function show($id)
 {
-    $buku = Bukumodel::all();
-    // code to show the book details
-    return view('buku.show', ['buku' => $buku]);
+        $buku = Bukumodel::find($id);
+        return view('halaman.detailbuku', compact('buku'));
 }
 
 public function edit($id)
 {
-    $buku = Bukumodel::all();
+    $buku = Bukumodel::find($id);
     // code to edit the book details
-    return view('halaman.edit', ['buku' => $buku]);
+    return view('halaman.editbuku', ['buku' => $buku]);
 }
-
+public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'namabuku' => 'required|min:3',
+            'judul' => 'required',
+            'kategory' => 'required',
+            
+        ]);
+        bukuModel::where('id',$id)
+        ->update(
+            [
+                'namabuku' => $request->input('namabuku'),
+                'judul' => $request->input('judul'),
+                'kategory' => $request->input('kategory'),
+                
+            ]
+            );
+        return redirect('/buku');
+    }
 public function destroy($id)
 {
     // code to delete the book
