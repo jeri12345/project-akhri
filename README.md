@@ -1,16 +1,24 @@
-# project-akhir
+# Final Project
 
-# kelompok 4
-jeri andanu
-raihan batsar
-dicky syahputra
-parintan manurung
+## kelompok 4
 
-# erd
+## Anggota Kelompok
+-Jeri Andanu
+-Raihan Batsar
+-Dicky Syahputra
+-Parintan Manurung
+
+## Tema Project
+
+Website Perpustakaan
+
+## erd
+![alt text](ERD.png)
+
+## Link Video 
+Lik Demo Aplikasi : https://youtu.be/v8X54iGnVCQ?si=2f0x0_aBwaRRipPC
 
 
-# link video 
-https://youtu.be/v8X54iGnVCQ?si=2f0x0_aBwaRRipPC
 
 
 
