@@ -1,23 +1,10 @@
-@extends('layouts.app')
+@extends('layout.master')
+
+@section('title')
+    Halaman Dashboard
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <h1>Perpustakaan</h1>
+    <h5>Perpustakaan adalah tempat untuk mengembangkan informasi dan pengetahuan yang dikelola secara profesional dengan sistem yang baku. Perpustakaan berfungsi untuk memenuhi kebutuhan pendidikan, penelitian, pelestarian, informasi dan rekreasi para pemustaka. Perpustakaan juga merupakan sarana edukatif untuk membantu memperlancar cakrawala pendidik dan peserta didik dalam kegiatan belajar mengajar.<h5>
 @endsection
